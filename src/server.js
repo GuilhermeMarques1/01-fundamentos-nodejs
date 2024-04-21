@@ -24,9 +24,9 @@ const server = http.createServer(async (req, res) => {
       email,
     };
 
-    database.insert("users", user);
+    const data = database.insert("users", user);
 
-    return res.writeHead(201).end();
+    return res.writeHead(201).end(JSON.stringify(data));
   }
 
   return res.writeHead(404).end();
